@@ -3,8 +3,8 @@ import json
 
 
 def get_data(filename):
-    operations_json = open(filename, encoding='utf-8')
-    return json.load(operations_json)
+    with open(filename, encoding='utf-8') as operations_json:
+        return json.load(operations_json)
 
 def bank_acc(account):
     return bool(account and "Счет" in account)
