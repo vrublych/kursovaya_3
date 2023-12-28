@@ -19,4 +19,4 @@ def test_hidden_num_acc():
     assert hidden_num_acc("Счет 12345678123456781234") == "Счет **1234"
 
 def test_format_date():
-    assert format_date("2018-06-30T02:08:58.425572") == "30.06.2018"
+    assert format_date("2019-07-15T11:47:40.496961") == "15.07.2019"

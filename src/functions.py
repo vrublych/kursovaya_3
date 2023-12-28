@@ -13,16 +13,10 @@ def bank_card(card):
     return bool(card and "Счет" not in card)
 
 def hidden_card_num(card):
-    card_list = card.split(' ')
-    card_name = ' '.join(card_list[:-1])
-    number_card = card_list[-1]
-    number = list(number_card)
-    for x in range(6, 12):
-        number[x] = '*'
-    number.insert(4, ' ')
-    number.insert(9, ' ')
-    number.insert(14, ' ')
-    return f"{card_name} {''.join(number)}"
+    card_name, card_number = card.rsplit(' ', 1)
+    visible_digits = card_number[:6] + '*' * 6 + card_number[-4:]
+    formatted_number = ' '.join([visible_digits[i:i+4] for i in range(0, len(visible_digits), 4)])
+    return f"{card_name} {formatted_number}"
 
 def hidden_num_acc(account):
     account_name, number_account = account.rsplit(' ', 1)
